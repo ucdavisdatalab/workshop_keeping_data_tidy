@@ -1,5 +1,5 @@
 ---
-title: Excelling with Excel: Keeping your Data Tidy
+title: Excelling with Excel: Keeping Your Data Tidy
 author: [Dr. Pamela L. Reynolds, Victoria Farrar]
 date: January 21, 2021
 output:
@@ -15,7 +15,7 @@ library(knitr)
 
 # Overview
 
-This workshop introduces learners to best practices for data entry and organization for data-driven projects. With interactive, hands-on examples we’ll practice using data validation tools including filters, restricted vocabularies, and flags in Microsoft Excel. These skills are also applicable to working in Google Sheets, LibreOffice, and other spreadsheet software. At the end of the workshop, learners should be able to identify the best practices for designing a spreadsheet and entering data, compare different data formats, and be able to use spreadsheet software for basic data validation. This workshop is designed for learners who have basic familiarity with Microsoft Excel, Google Sheets, LibreOffice or similar spreadsheet programs. No coding experience is required.  All participants will need a computer with Microsoft Excel 2016 or newer, and the latest version of Zoom. 
+This workshop introduces learners to best practices for data entry and organization for data-driven projects. With interactive, hands-on examples we’ll practice using data validation tools including filters, restricted vocabularies, and flags in Microsoft Excel. These skills are also applicable to working in Google Sheets, LibreOffice, and other spreadsheet software. At the end of the workshop, learners should be able to identify the best practices for designing a spreadsheet and entering data, compare different data formats, and be able to use spreadsheet software for basic data validation. This workshop is designed for learners who have basic familiarity with spreadsheet programs. No coding experience is required.  All participants will need a computer with Microsoft Excel 2016 or newer, and the latest version of Zoom. 
 
 # Introduction
 
