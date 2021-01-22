@@ -1,11 +1,14 @@
 # Workshop: Excelling with Excel: Keeping Data Tidy
 This repo is the home for DataLab's "Excelling with Excel: Best Practices for Keeping Your Data Tidy" workshop which introduces learners to best practices for data entry and organization for data-drive projects.
 
+### Maintainers
+* Pamela Reynolds, UC Davis DataLab
+
 ### Links
 * 2021 workshop offering event page: https://datalab.ucdavis.edu/eventscalendar/excelling-with-excel-best-practices-for-keeping-your-data-tidy/
 * workshop reader storage: https://datalab.ucdavis.edu/workshop-keeping-data-tidy
 
-### Protocols:
+### Protocols
 
 The course reader is a live webpage, hosted through GitHub, where you can enter curriculum content and post it to a public-facing site for learners. Supplementary examples for other readings are also appropriate, but please refrain from using it as a space to host slides.
 
