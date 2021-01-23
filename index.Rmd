@@ -1,5 +1,5 @@
 ---
-title: Excelling with Excel: Keeping Your Data Tidy
+title: Excelling with Excel- Keeping Your Data Tidy
 author: [Dr. Pamela L. Reynolds, Victoria Farrar]
 date: January 21, 2021
 output:
@@ -7,11 +7,11 @@ output:
 ---
 
 ```{r, echo=FALSE}
-url <- "https://datalab.ucdavis.edu/cstahmer/git_workshop_images/mac_finder_1.png"
+url1 <- "https://datalab.ucdavis.edu/cstahmer/git_workshop_images/mac_finder_1.png"
 library(knitr)
 ```
 
-![](`r url15`)
+![](img/quickmeme_iexcel.jpg){ width=250px height=250px}
 
 # Overview
 
@@ -19,4 +19,51 @@ This workshop introduces learners to best practices for data entry and organizat
 
 # Introduction
 
-##
+## Learning Objectives 
+
+After this workshop, participants should be able to:
+
+  * describe the steps in the lifecycle of a data-driven project
+  * identify best practices for entering and formatting data in spreadsheets 
+  * use tools in Microsoft Excel for data validation and filtering 
+  * define restricted vocabularies, data dictionaries and filter keys
+  * compare the advantages of different data file formats
+
+
+## Before Excel: The Data Lifecycle 
+
+Before we begin entering and organizing our data in spreadsheets, we consider the paths our data takes as it moves through our data-driven project as a whole. Where does our data come from? Where is going, what are we going to do with it? Who is it ultimately for? Data scientists call this process the **"data lifecycle"**. 
+
+![](img/usgs_data_lifecycle.png)
+*Note: There are many different versions of the data lifecycle, but we particularly like that of the [US Geological Survey](https://pubs.usgs.gov/of/2013/1265/pdf/of2013-1265.pdf) and [DataOne](https://old.dataone.org/data-life-cycle).*  (Source: [USGS](https://pubs.usgs.gov/of/2013/1265/pdf/of2013-1265.pdf))
+
+
+The steps of the data cycle: 
+
+  * **Plan**: planning what data will be collected, how it will be processed, analyzed and stored throughout the project
+  * **Acquire**: collecting our data, through measurement tools (i.e. survey instruments, interview transcripts, GPS location loggers, molecular sequencing assays, behavioral observations, etc.) and entering the data in digital form
+  * **Process**: processing data to assure quality, cleaning and formatting the data for downstream analyses and storage
+  * **Analyze**: exploring and interpreting patterns in data, summarizing and visualizing results, testing hypotheses, and reporting conclusions from datasets
+  * **Preserve**: store data in secure way and in formats that ensure long-term accessibility and reuse
+  * **Publish/Share**: distribute data through peer-reviewed publications, report submission, and/or archiving data in field-appropriate data depositories/archives for future access and analysis. 
+
+The following processes occur throughout the data lifecycle: 
+
+  * **Describe **: documenting sources of data, keeping records analysis or processing throughout all steps, recording keys to codes and dataset-specific variables, and history of dataset use. 
+  * **Manage quality **: following best practices at all steps to ensure quality, transparency and reproducibility throughout the data process. 
+  * **Backup and secure ** : backing-up and securing data in secure storage locations at all steps of the process. 
+  
+When working with Excel, many of us are often at "Acquire" and "Process" stages of this lifecycle. 
+In this workshop, we will illustrate best practices that will help with first-time data entry (**Acquire**), data validation, cleaning and filtering (**Process**) as well as discuss formats and version control that will help with preserving data for reuse and accessibility (**Preserve**). 
+
+
+### Interested in documenting your data?
+
+In an upcoming workshop (March 4th, 2021), we will be discussing metadata and documentation for data-driven projects. This workshop will delve more into the **Describe** process at all steps. (See [here](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/) for more information.)
+
+
+
+ 
+
+
+
