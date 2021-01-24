@@ -30,7 +30,7 @@ After this workshop, participants should be able to:
   * compare the advantages of different data file formats
 
 
-## Before Excel: The Data Lifecycle 
+## Before Excel: The Data Lifecycle {#datalifecycle}
 
 Before we begin entering and organizing our data in spreadsheets, we consider the paths our data takes as it moves through our data-driven project as a whole. Where does our data come from? Where is going, what are we going to do with it? Who is it ultimately for? Data scientists call this process the **"data lifecycle"**. 
 
@@ -65,7 +65,7 @@ In an upcoming workshop (March 4th, 2021), we will be discussing metadata and do
 
 In this section, we list some of the best practices to follow when entering and arranging data in Excel. These quick tips will help with data analysis and interpretation down the line, making your data more shareable and reproducible. 
 
-## 1. Keep variables in columns, observations in rows. 
+## 1. Keep variables in columns, observations in rows. {#one}
 
 In a spreadsheet (or data stored in a tabular form), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice 
 
@@ -114,23 +114,70 @@ Often, variable levels or categories may be very long, and during data entry, yo
 **Why do this?**  Consistent codes within variables/columns will make downstream analysis easier, such as trying to sort or summarize data based on levels of a variable. Keeping variable names (i.e. your column names, the top row of your spreadsheet) consistent across datasets or spreadsheets will make joining these datasets together - such as in a relational manner - straightforward in future analyses. All of this will improve the interpretability of your data for collaborators and your future self, increasing transparency and reproducibility. 
 
 ## 6. Store one dataset per file. 
+Avoid "stacking" multiple datasets (i.e. observations with different variable or column names) within one spreadsheet. This also confuses the computer / Excel, which considers one row an observation and one column a variable (see [#1](#one)). Move these separate tables or datasets to their own file. 
+
+While Excel allows you to use different tabs within one Excel document, it is best to save separate datasets as separate files. It's okay to use a new tab as a sandbox for exploratory analyses, but ultimately, if you want to save data for future use, save it in a new, separate file. 
+
+*Why do this?* The datasets hidden in separate tabs aren't easily searchable in your folder directory, and may make it hard for collaborators or your future self to find this data. Further, non-proprietary formats, which are better for storage, sharing and analysis in programming languages, do not support multiple sheets per file (see [#8](#eight)).
 
 ## 7. Keep your data "raw". 
 
-## 8. Save your files in a non-proprietary format. 
+Once you have a dataset that is clean and organized following the best practices, save this file as a "raw" or “master” file.  Avoid doing any analyses or further processing in the same, original dataset. Instead, create a new file to do these further processing or analysis steps (you can call it "processed", or some other descriptor about the analysis being done). 
+
+You can even go so far as to make your raw data read only - forcing future you, or any collaborators, to have to make a copy in order to edit it.
+
+**How to make a file read-only in Excel 2016+**: 
+
+> Go to "Review" tab, and select "Always Open Read Only". 
+
+![](img/read_only_excel.png)
+
+Your file should always prompt the next user to open read-only from here on out. If you would like to fully restrict your file, you can protect it with a Password (Restrict Permission).
+
+**Why do this?** This will help you preserve your data as intended, and avoid any accidental formula edits, pull-downs, or unintended changes that cause the original data to be corrupted or lost. 
+
+
+## 8. Save your files in a non-proprietary format. {#eight}
+
+As great as Excel is, it is Microsoft's proprietary software that does not translate to long-term data storage or cannot be read by many other data management / database systems or programming languages. For longevity of your data, store your data in a non-proprietary ("generic") format, such as:
+
+* **.csv**: comma-separated values. Cells in columns are separated by commas across the rows. Good for most quantitative uses, may be problematic for text data with full sentences and strings that include punctuation like commas. 
+* **.tsv**: tab-separated values. Similar to .csv, but cells are separted by tabs. A better alternative for data types that include commas and other punctuation.  
+
+**Why do this?** Have you ever tried opening a .xlsx file in a text editor? It looks something like this: 
+
+![](img/xlsx_text_editor.png){width=384px height=260px}
+
+All of your data is obscured this way! 
+These files are not accessible to many other data processors and managers, nor are they easily importable into programming languages like R for downstream analysis. While you might currently have access to Excel, you may lose access in the future, or may have collaborators without access to the software. Using non-proprietary formats increases the longevity and access to your data. In fact, many field-specific and governmental data archives are requiring data to be deposited in non-proprietary formats. Further, these "open" formats work better with version control softwares, like git (see next, #9).
 
 ## 9. Control your versions (or they will control you!)
 
-## 10. Backup your data and versions often. 
+As your project continues, you will likely collect data multiple times, add data, and end up formatting and processing your data in many ways. In addition to keeping your data raw, you should keep the different iterations of your dataset, or versions, delineated. This process of storing multiple versions or iterations of a file is called **version control**. 
 
+One of the simplest ways to implement version control is to have a naming system, where you add some information about your new file, be it the date or additions, to the name of the file, along with the date it was saved. This "by hand" method can work well for some users' needs, but it can also become messy and difficult to navigate, as seen here: 
+
+![](http://www.phdcomics.com/comics/archive/phd052810s.gif)
+
+It may also be worth exploring a version control system software that can store your versions on a server and contains information about specific changes between versions, as well as allow you to collaborate with others or revert changes back to past versions. **Git** is a popular version control software, which you can explore more in [DataLab's upcoming workshops](#resources).
+
+## 10. Document your data. 
+
+Lastly, [as mentioned](#datalifecycle), it is important to describe and document all the decisions you make with your dataset. This data about your data is called **metadata**. Metadata has multiple levels, ranging from codebooks that explain what abbreviations and variable names stand for within a dataset, to READMEs which explain all the versions and what is contained in all the different datasets within your project directory, as well as documentation that describes the source and history of data collection. These practices all will improve the transparency, accessibility and reproducibility of your data collection, analyses and project workflow overall. 
+
+For more information about metadata and data documentation, we will be holding [another workshop in March on this topic](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/). 
 
 # Data Validation (Pamela)
 
-# Additional Resources
+# Additional Resources {#resources}
 
 ### DataLab Workshops 
-* Introduction to Git 
-  * Upcoming Workshop: 
-  * Past recordings 
-* Introduction to Databases 
-  * Past recordings 
+* Introduction to Version Control with Git 
+  * Upcoming Interactive Workshop: [February 24th, 2021](https://datalab.ucdavis.edu/eventscalendar/introduction-to-version-control-with-git-2/)
+  * Past recordings: 
+    * [Spring 2019 (video)](https://www.youtube.com/watch?v=1SiZTRP6hEc&feature=youtu.be)
+  
+* Introduction to SQL for Querying Databases
+  * Past recordings: 
+    * [Fall 2019 (video)](https://github.com/ucdavisdatalab/workshop-intro-to-sql-for-querying-databases)
+      * [Associated repository materials](https://github.com/ucdavisdatalab/workshop-intro-to-sql-for-querying-databases)
