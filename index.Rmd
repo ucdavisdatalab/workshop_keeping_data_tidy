@@ -57,13 +57,80 @@ When working with Excel, many of us are often at "Acquire" and "Process" stages 
 In this workshop, we will illustrate best practices that will help with first-time data entry (**Acquire**), data validation, cleaning and filtering (**Process**) as well as discuss formats and version control that will help with preserving data for reuse and accessibility (**Preserve**). 
 
 
-### Interested in documenting your data?
+### Interested in documenting your data? {#readme_workshop}
 
 In an upcoming workshop (March 4th, 2021), we will be discussing metadata and documentation for data-driven projects. This workshop will delve more into the **Describe** process at all steps. (See [here](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/) for more information.)
 
+# Spreadsheet Best Practices 
+
+In this section, we list some of the best practices to follow when entering and arranging data in Excel. These quick tips will help with data analysis and interpretation down the line, making your data more shareable and reproducible. 
+
+## 1. Keep variables in columns, observations in rows. 
+
+In a spreadsheet (or data stored in a tabular form), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice 
+
+**Why do this?**  This follows the formats and style of many other data processors, such as more formal, SQL-based relational databases and the "tidy" format facilitated by coding in languages like R. 
+
+**Examples**: 
+
+## 2. Stick to one datatype per variable/column. {#two}
+
+With your variables in columns, it is best to stick to one datatype per variable. A **datatype** defines what kind of data is being stored, such as numerical data, integers, text or character strings, or dates, for example. As you define your variable columns (as in #1), ask yourself: *What would the data type for this column be?* For example, date_of_birth would be a date, distance_km would be a number, question10_response may be a character string of text. 
+
+Considering that the cell is the smallest "unit of measurement", each cell in the variable column should be of the same type, and should contain only that type. If you find that some of your cells have multiple types within them, it may be worth creating a new variable/column to store and differentiate this data, such as a "unit" column, or a "notes" column (see [#3](#three)). 
 
 
- 
+**Why do this?**  This will facilitate analyses down the line. Have you ever tried to sort a column in Excel and gotten the annoying error that asks you to "sort everything that looks like a number like a number"? This will helo avoid this issue, but will also allow you to accurately use functions like sort, calculate sums, averages, and run analyses on variables as separate units, without having your data be "polluted" by excess information. 
+Further, if you end up exporting your data to coding languages or other data processors, you may lose data that does not match the type exported, or experience errors where these mismatched types are converted into new values or into NAs. 
+
+## 3. Add notes and comments in separate columns. {#three}
+
+Given that we should enter one data unit / type into our columns (above), a common follow up is: *What about notes, though?* Of course, it's important including notes, comments, and disclaimers about samples or observations. However, including these directly in your cells along with data points will lead to the problems downstream in analysis solved by #2. As a solution, create a new column called "notes" or "comments". If you'd like to restrict notes to certain variables, you can have multiple notes columns, and include this in their column names.
+
+It's best to avoid
+
+  * adding notes directly in cells with your data points
+    * This includes asterisks, or "see notes" notes!
+  * using the hovering comments function found in "Review" 
+    * This will be lost outside of Excel (see #X about non-proprietary formats) 
+  * using color-coding to highlight issues or questionable cells
+    * see [#4](#four) 
+
+**Why do this?** As in [#2](#two), this avoids multiple types in cells that can muck up downstream analysis or imports into programming languages or other softwares. This also keeps variables "atomized" and organized into the smallest units of information, helping your collaborators (including future you!) find information easier. 
+
+## 4. Code information explicitly in cells rather than in formatting. {#four}
+
+While using color codes, bold and italics to indicate information about data points is tempting, it is best to avoid actually storing or coding information in formats. Instead of using color codes, make this information coded by color or font format explicit its own column. 
+
+**Why do this?**  Data included in these formatting is not made explicit (i.e. is not stored in a cell, in a recognizeable data type). These formats will thus be hard to analyze (how do you search for or sort by a color?). Further, these formats are Excel-specific and will be lost in other data formats (see #X) and when exported into programming languages or other data processors. 
+
+## 5. Be consistent with variable names and codes. 
+
+Often, variable levels or categories may be very long, and during data entry, you may want to use abbreviations or shorthand to make data entry easier. This is fine! But if you choose to use codes, make sure to do two things: 
+
+  1. be consistent, using the same codes and names across the entire column and all your associated datasets; and 
+  2. record the full code names in your data documentation (often referred to as **metadata**, your data about your data). *(To learn more about metadata, see [our associated workshop](#readme_workshop).)*
+
+**Why do this?**  Consistent codes within variables/columns will make downstream analysis easier, such as trying to sort or summarize data based on levels of a variable. Keeping variable names (i.e. your column names, the top row of your spreadsheet) consistent across datasets or spreadsheets will make joining these datasets together - such as in a relational manner - straightforward in future analyses. All of this will improve the interpretability of your data for collaborators and your future self, increasing transparency and reproducibility. 
+
+## 6. Store one dataset per file. 
+
+## 7. Keep your data "raw". 
+
+## 8. Save your files in a non-proprietary format. 
+
+## 9. Control your versions (or they will control you!)
+
+## 10. Backup your data and versions often. 
 
 
+# Data Validation (Pamela)
 
+# Additional Resources
+
+### DataLab Workshops 
+* Introduction to Git 
+  * Upcoming Workshop: 
+  * Past recordings 
+* Introduction to Databases 
+  * Past recordings 

@@ -1588,6 +1588,20 @@ document.addEventListener('DOMContentLoaded', function() {
       <li><a href="#learning-objectives">Learning Objectives</a></li>
       <li><a href="#before-excel-the-data-lifecycle">Before Excel: The Data Lifecycle</a></li>
       </ul></li>
+      <li><a href="#spreadsheet-best-practices">Spreadsheet Best Practices</a><ul>
+      <li><a href="#keep-variables-in-columns-observations-in-rows.">1. Keep variables in columns, observations in rows.</a></li>
+      <li><a href="#two">2. Stick to one datatype per variable/column.</a></li>
+      <li><a href="#three">3. Add notes and comments in separate columns.</a></li>
+      <li><a href="#four">4. Code information explicitly in cells rather than in formatting.</a></li>
+      <li><a href="#be-consistent-with-variable-names-and-codes.">5. Be consistent with variable names and codes.</a></li>
+      <li><a href="#store-one-dataset-per-file.">6. Store one dataset per file.</a></li>
+      <li><a href="#keep-your-data-raw.">7. Keep your data “raw”.</a></li>
+      <li><a href="#save-your-files-in-a-non-proprietary-format.">8. Save your files in a non-proprietary format.</a></li>
+      <li><a href="#control-your-versions-or-they-will-control-you">9. Control your versions (or they will control you!)</a></li>
+      <li><a href="#backup-your-data-and-versions-often.">10. Backup your data and versions often.</a></li>
+      </ul></li>
+      <li><a href="#data-validation-pamela">Data Validation (Pamela)</a></li>
+      <li><a href="#additional-resources">Additional Resources</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1640,10 +1654,95 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><strong>Backup and secure </strong> : backing-up and securing data in secure storage locations at all steps of the process.</li>
 </ul>
 <p>When working with Excel, many of us are often at “Acquire” and “Process” stages of this lifecycle. In this workshop, we will illustrate best practices that will help with first-time data entry (<strong>Acquire</strong>), data validation, cleaning and filtering (<strong>Process</strong>) as well as discuss formats and version control that will help with preserving data for reuse and accessibility (<strong>Preserve</strong>).</p>
-<div id="interested-in-documenting-your-data" class="section level3">
+<div id="readme_workshop" class="section level3">
 <h3>Interested in documenting your data?</h3>
 <p>In an upcoming workshop (March 4th, 2021), we will be discussing metadata and documentation for data-driven projects. This workshop will delve more into the <strong>Describe</strong> process at all steps. (See <a href="https://datalab.ucdavis.edu/eventscalendar/readme-write-me/">here</a> for more information.)</p>
 </div>
+</div>
+</div>
+<div id="spreadsheet-best-practices" class="section level1">
+<h1>Spreadsheet Best Practices</h1>
+<p>In this section, we list some of the best practices to follow when entering and arranging data in Excel. These quick tips will help with data analysis and interpretation down the line, making your data more shareable and reproducible.</p>
+<div id="keep-variables-in-columns-observations-in-rows." class="section level2">
+<h2>1. Keep variables in columns, observations in rows.</h2>
+<p>In a spreadsheet (or data stored in a tabular form), the smallest “unit of measurement” is a <strong>cell</strong>, such as cell A1. It is best practice</p>
+<p><strong>Why do this?</strong> This follows the formats and style of many other data processors, such as more formal, SQL-based relational databases and the “tidy” format facilitated by coding in languages like R.</p>
+<p><strong>Examples</strong>:</p>
+</div>
+<div id="two" class="section level2">
+<h2>2. Stick to one datatype per variable/column.</h2>
+<p>With your variables in columns, it is best to stick to one datatype per variable. A <strong>datatype</strong> defines what kind of data is being stored, such as numerical data, integers, text or character strings, or dates, for example. As you define your variable columns (as in #1), ask yourself: <em>What would the data type for this column be?</em> For example, date_of_birth would be a date, distance_km would be a number, question10_response may be a character string of text.</p>
+<p>Considering that the cell is the smallest “unit of measurement”, each cell in the variable column should be of the same type, and should contain only that type. If you find that some of your cells have multiple types within them, it may be worth creating a new variable/column to store and differentiate this data, such as a “unit” column, or a “notes” column (see <a href="#three">#3</a>).</p>
+<p><strong>Why do this?</strong> This will facilitate analyses down the line. Have you ever tried to sort a column in Excel and gotten the annoying error that asks you to “sort everything that looks like a number like a number”? This will helo avoid this issue, but will also allow you to accurately use functions like sort, calculate sums, averages, and run analyses on variables as separate units, without having your data be “polluted” by excess information. Further, if you end up exporting your data to coding languages or other data processors, you may lose data that does not match the type exported, or experience errors where these mismatched types are converted into new values or into NAs.</p>
+</div>
+<div id="three" class="section level2">
+<h2>3. Add notes and comments in separate columns.</h2>
+<p>Given that we should enter one data unit / type into our columns (above), a common follow up is: <em>What about notes, though?</em> Of course, it’s important including notes, comments, and disclaimers about samples or observations. However, including these directly in your cells along with data points will lead to the problems downstream in analysis solved by #2. As a solution, create a new column called “notes” or “comments”. If you’d like to restrict notes to certain variables, you can have multiple notes columns, and include this in their column names.</p>
+<p>It’s best to avoid</p>
+<ul>
+<li>adding notes directly in cells with your data points
+<ul>
+<li>This includes asterisks, or “see notes” notes!</li>
+</ul></li>
+<li>using the hovering comments function found in “Review”
+<ul>
+<li>This will be lost outside of Excel (see #X about non-proprietary formats)</li>
+</ul></li>
+<li>using color-coding to highlight issues or questionable cells
+<ul>
+<li>see <a href="#four">#4</a></li>
+</ul></li>
+</ul>
+<p><strong>Why do this?</strong> As in <a href="#two">#2</a>, this avoids multiple types in cells that can muck up downstream analysis or imports into programming languages or other softwares. This also keeps variables “atomized” and organized into the smallest units of information, helping your collaborators (including future you!) find information easier.</p>
+</div>
+<div id="four" class="section level2">
+<h2>4. Code information explicitly in cells rather than in formatting.</h2>
+<p>While using color codes, bold and italics to indicate information about data points is tempting, it is best to avoid actually storing or coding information in formats. Instead of using color codes, make this information coded by color or font format explicit its own column.</p>
+<p><strong>Why do this?</strong> Data included in these formatting is not made explicit (i.e. is not stored in a cell, in a recognizeable data type). These formats will thus be hard to analyze (how do you search for or sort by a color?). Further, these formats are Excel-specific and will be lost in other data formats (see #X) and when exported into programming languages or other data processors.</p>
+</div>
+<div id="be-consistent-with-variable-names-and-codes." class="section level2">
+<h2>5. Be consistent with variable names and codes.</h2>
+<p>Often, variable levels or categories may be very long, and during data entry, you may want to use abbreviations or shorthand to make data entry easier. This is fine! But if you choose to use codes, make sure to do two things:</p>
+<ol style="list-style-type: decimal">
+<li>be consistent, using the same codes and names across the entire column and all your associated datasets; and</li>
+<li>record the full code names in your data documentation (often referred to as <strong>metadata</strong>, your data about your data). <em>(To learn more about metadata, see <a href="#readme_workshop">our associated workshop</a>.)</em></li>
+</ol>
+<p><strong>Why do this?</strong> Consistent codes within variables/columns will make downstream analysis easier, such as trying to sort or summarize data based on levels of a variable. Keeping variable names (i.e. your column names, the top row of your spreadsheet) consistent across datasets or spreadsheets will make joining these datasets together - such as in a relational manner - straightforward in future analyses. All of this will improve the interpretability of your data for collaborators and your future self, increasing transparency and reproducibility.</p>
+</div>
+<div id="store-one-dataset-per-file." class="section level2">
+<h2>6. Store one dataset per file.</h2>
+</div>
+<div id="keep-your-data-raw." class="section level2">
+<h2>7. Keep your data “raw”.</h2>
+</div>
+<div id="save-your-files-in-a-non-proprietary-format." class="section level2">
+<h2>8. Save your files in a non-proprietary format.</h2>
+</div>
+<div id="control-your-versions-or-they-will-control-you" class="section level2">
+<h2>9. Control your versions (or they will control you!)</h2>
+</div>
+<div id="backup-your-data-and-versions-often." class="section level2">
+<h2>10. Backup your data and versions often.</h2>
+</div>
+</div>
+<div id="data-validation-pamela" class="section level1">
+<h1>Data Validation (Pamela)</h1>
+</div>
+<div id="additional-resources" class="section level1">
+<h1>Additional Resources</h1>
+<div id="datalab-workshops" class="section level3">
+<h3>DataLab Workshops</h3>
+<ul>
+<li>Introduction to Git
+<ul>
+<li>Upcoming Workshop:</li>
+<li>Past recordings</li>
+</ul></li>
+<li>Introduction to Databases
+<ul>
+<li>Past recordings</li>
+</ul></li>
+</ul>
 </div>
 </div>
 </div>
