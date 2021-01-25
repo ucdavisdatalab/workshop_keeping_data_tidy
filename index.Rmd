@@ -35,23 +35,23 @@ After this workshop, participants should be able to:
 Before we begin entering and organizing our data in spreadsheets, we consider the paths our data takes as it moves through our data-driven project as a whole. Where does our data come from? Where is going, what are we going to do with it? Who is it ultimately for? Data scientists call this process the **"data lifecycle"**. 
 
 ![](img/usgs_data_lifecycle.png)
-*Note: There are many different versions of the data lifecycle, but we particularly like that of the [US Geological Survey](https://pubs.usgs.gov/of/2013/1265/pdf/of2013-1265.pdf) and [DataOne](https://old.dataone.org/data-life-cycle).*  (Source: [USGS](https://pubs.usgs.gov/of/2013/1265/pdf/of2013-1265.pdf))
+*Note: There are many different versions of the data lifecycle, but we particularly like those of the [US Geological Survey](https://pubs.usgs.gov/of/2013/1265/pdf/of2013-1265.pdf) and [DataOne](https://old.dataone.org/data-life-cycle). Our data cycle steps below are based on both of those sources*  (Image Source: [USGS](https://pubs.usgs.gov/of/2013/1265/pdf/of2013-1265.pdf))
 
 
 The steps of the data cycle: 
 
-  * **Plan**: planning what data will be collected, how it will be processed, analyzed and stored throughout the project
-  * **Acquire**: collecting our data, through measurement tools (i.e. survey instruments, interview transcripts, GPS location loggers, molecular sequencing assays, behavioral observations, etc.) and entering the data in digital form
-  * **Process**: processing data to assure quality, cleaning and formatting the data for downstream analyses and storage
-  * **Analyze**: exploring and interpreting patterns in data, summarizing and visualizing results, testing hypotheses, and reporting conclusions from datasets
+  * **Plan**: plan what data will be collected, how it will be processed, analyzed and stored throughout the project
+  * **Acquire**: collect data, through measurement tools and observations, (i.e. survey instruments, interview transcripts, GPS location loggers, molecular sequencing assays, behavioral observations, etc.) and enter the data in digital form
+  * **Process**: process data to assure quality, clean and format the data for downstream analyses and storage
+  * **Analyze**: explore and interpret patterns in data, summarize and visualize results, test hypotheses using statistics, and report conclusions
   * **Preserve**: store data in secure way and in formats that ensure long-term accessibility and reuse
-  * **Publish/Share**: distribute data through peer-reviewed publications, report submission, and/or archiving data in field-appropriate data depositories/archives for future access and analysis. 
+  * **Publish/Share**: distribute data through peer-reviewed publications or submitted reports, and archive data in field-appropriate data depositories/archives for future access and analysis. 
 
 The following processes occur throughout the data lifecycle: 
 
-  * **Describe **: documenting sources of data, keeping records analysis or processing throughout all steps, recording keys to codes and dataset-specific variables, and history of dataset use. 
-  * **Manage quality **: following best practices at all steps to ensure quality, transparency and reproducibility throughout the data process. 
-  * **Backup and secure ** : backing-up and securing data in secure storage locations at all steps of the process. 
+  * **Describe **: document sources of data, keep records of analysis or processing throughout all steps, record keys to codes and dataset-specific variables, and log history of dataset use. 
+  * **Manage quality **: follow best practices at all steps to ensure quality, transparency and reproducibility throughout the data process. 
+  * **Backup and secure ** : back-up and secure data in reliable, accessible storage locations at all steps of the process
   
 When working with Excel, many of us are often at "Acquire" and "Process" stages of this lifecycle. 
 In this workshop, we will illustrate best practices that will help with first-time data entry (**Acquire**), data validation, cleaning and filtering (**Process**) as well as discuss formats and version control that will help with preserving data for reuse and accessibility (**Preserve**). 
@@ -67,9 +67,9 @@ In this section, we list some of the best practices to follow when entering and 
 
 ## 1. Keep variables in columns, observations in rows. {#one}
 
-In a spreadsheet (or data stored in a tabular form), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice 
+In a spreadsheet (or data stored in a tabular form), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice to place your variables in columns, and separate observations in rows. Then, all the cells in a row will be part of one observation (each defining a different variable) and all the cells in a column will represent values of that variable across observations. 
 
-**Why do this?**  This follows the formats and style of many other data processors, such as more formal, SQL-based relational databases and the "tidy" format facilitated by coding in languages like R. 
+**Why do this?**  This follows the formats and style of many other data processors, such as more formal, SQL-based relational databases and the ["tidy" format](https://r4ds.had.co.nz/tidy-data.html) facilitated by coding in languages like R.
 
 **Examples**: 
 
@@ -77,8 +77,9 @@ In a spreadsheet (or data stored in a tabular form), the smallest "unit of measu
 
 With your variables in columns, it is best to stick to one datatype per variable. A **datatype** defines what kind of data is being stored, such as numerical data, integers, text or character strings, or dates, for example. As you define your variable columns (as in #1), ask yourself: *What would the data type for this column be?* For example, date_of_birth would be a date, distance_km would be a number, question10_response may be a character string of text. 
 
-Considering that the cell is the smallest "unit of measurement", each cell in the variable column should be of the same type, and should contain only that type. If you find that some of your cells have multiple types within them, it may be worth creating a new variable/column to store and differentiate this data, such as a "unit" column, or a "notes" column (see [#3](#three)). 
+Considering that the cell is the smallest "unit of measurement", each cell in the variable column should ideally be of the same type, and should contain only that type. If you find that some of your cells have multiple types within them, it may be worth creating a new variable/column to store and differentiate this data, such as a "unit" column, or a "notes" column (see [#3](#three)). 
 
+Lastly, make sure that you aren't inadverently storing multiple "units" of information in one cell, even if they are the same type (e.g. numbers). Some common examples are including birth and death dates (a range) in one cell, or latitude and longitude in the same cell in a column. 
 
 **Why do this?**  This will facilitate analyses down the line. Have you ever tried to sort a column in Excel and gotten the annoying error that asks you to "sort everything that looks like a number like a number"? This will helo avoid this issue, but will also allow you to accurately use functions like sort, calculate sums, averages, and run analyses on variables as separate units, without having your data be "polluted" by excess information. 
 Further, if you end up exporting your data to coding languages or other data processors, you may lose data that does not match the type exported, or experience errors where these mismatched types are converted into new values or into NAs. 
@@ -163,9 +164,25 @@ It may also be worth exploring a version control system software that can store 
 
 ## 10. Document your data. 
 
-Lastly, [as mentioned](#datalifecycle), it is important to describe and document all the decisions you make with your dataset. This data about your data is called **metadata**. Metadata has multiple levels, ranging from codebooks that explain what abbreviations and variable names stand for within a dataset, to READMEs which explain all the versions and what is contained in all the different datasets within your project directory, as well as documentation that describes the source and history of data collection. These practices all will improve the transparency, accessibility and reproducibility of your data collection, analyses and project workflow overall. 
+Lastly, [as mentioned](#datalifecycle), it is important to describe and document all the decisions you make with your dataset. This data about your data is called **metadata**. 
 
-For more information about metadata and data documentation, we will be holding [another workshop in March on this topic](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/). 
+From the above tips, you'd want to document details about your:  
+
+*Column names
+  * What do they stand for? 
+  * What data type should they be? What is their source?
+*Variable codes
+  * What do the abbreviations in your columns stand for? 
+  * What are the acceptable values for a variable? 
+  * How are missing data indicated?
+*Datasets
+  * How do datasets, if there are more than one, relate to one another? 
+  * Which is the "master" or "raw" data? which has been processed or cleaned, and if so, how? 
+  * What code or filters did you use?
+
+The answers to these questions can be stored in a `README.txt` file that follows along in your folder directory, acting as a "buddy" to your datasets, code, and the files it describes. No dataset should go alone without an accompanying README or documentation! 
+
+For more information about metadata and data documentation, we will be holding [another workshop in March on this topic](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/) (registration required)
 
 # Data Validation (Pamela)
 
