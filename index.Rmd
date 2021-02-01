@@ -73,6 +73,8 @@ In a spreadsheet (or data stored in a tabular form), the smallest "unit of measu
 
 **Examples**: 
 
+![](img/tip1_example.png)
+
 ## 2. Stick to one datatype per variable/column. {#two}
 
 With your variables in columns, it is best to stick to one datatype per variable. A **datatype** defines what kind of data is being stored, such as numerical data, integers, text or character strings, or dates, for example. As you define your variable columns (as in #1), ask yourself: *What would the data type for this column be?* For example, date_of_birth would be a date, distance_km would be a number, question10_response may be a character string of text. 
@@ -83,6 +85,10 @@ Lastly, make sure that you aren't inadverently storing multiple "units" of infor
 
 **Why do this?**  This will facilitate analyses down the line. Have you ever tried to sort a column in Excel and gotten the annoying error that asks you to "sort everything that looks like a number like a number"? This will helo avoid this issue, but will also allow you to accurately use functions like sort, calculate sums, averages, and run analyses on variables as separate units, without having your data be "polluted" by excess information. 
 Further, if you end up exporting your data to coding languages or other data processors, you may lose data that does not match the type exported, or experience errors where these mismatched types are converted into new values or into NAs. 
+
+**Examples**: 
+
+![](img/tip2_example.png)
 
 ## 3. Add notes and comments in separate columns. {#three}
 
@@ -99,11 +105,19 @@ It's best to avoid
 
 **Why do this?** As in [#2](#two), this avoids multiple types in cells that can muck up downstream analysis or imports into programming languages or other softwares. This also keeps variables "atomized" and organized into the smallest units of information, helping your collaborators (including future you!) find information easier. 
 
+**Examples**: 
+
+![](img/tip3_example.png)
+
 ## 4. Code information explicitly in cells rather than in formatting. {#four}
 
 While using color codes, bold and italics to indicate information about data points is tempting, it is best to avoid actually storing or coding information in formats. Instead of using color codes, make this information coded by color or font format explicit its own column. 
 
 **Why do this?**  Data included in these formatting is not made explicit (i.e. is not stored in a cell, in a recognizeable data type). These formats will thus be hard to analyze (how do you search for or sort by a color?). Further, these formats are Excel-specific and will be lost in other data formats (see #X) and when exported into programming languages or other data processors. 
+
+**Examples**: 
+
+![](img/tip4_example.png)
 
 ## 5. Be consistent with variable names and codes. 
 
@@ -113,6 +127,10 @@ Often, variable levels or categories may be very long, and during data entry, yo
   2. record the full code names in your data documentation (often referred to as **metadata**, your data about your data). *(To learn more about metadata, see [our associated workshop](#readme_workshop).)*
 
 **Why do this?**  Consistent codes within variables/columns will make downstream analysis easier, such as trying to sort or summarize data based on levels of a variable. Keeping variable names (i.e. your column names, the top row of your spreadsheet) consistent across datasets or spreadsheets will make joining these datasets together - such as in a relational manner - straightforward in future analyses. All of this will improve the interpretability of your data for collaborators and your future self, increasing transparency and reproducibility. 
+
+**Examples**: 
+
+![](img/tip5_example.png)
 
 ## 6. Store one dataset per file. 
 Avoid "stacking" multiple datasets (i.e. observations with different variable or column names) within one spreadsheet. This also confuses the computer / Excel, which considers one row an observation and one column a variable (see [#1](#one)). Move these separate tables or datasets to their own file. 
