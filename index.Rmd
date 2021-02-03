@@ -11,11 +11,14 @@ url1 <- "https://datalab.ucdavis.edu/cstahmer/git_workshop_images/mac_finder_1.p
 library(knitr)
 ```
 
-![](img/quickmeme_iexcel.jpg){ width=250px height=250px}
+![](img/datalab-logo-full-color-rgb.png)
 
 # Overview
 
 This workshop introduces learners to best practices for data entry and organization for data-driven projects. With interactive, hands-on examples we’ll practice using data validation tools including filters, restricted vocabularies, and flags in Microsoft Excel. These skills are also applicable to working in Google Sheets, LibreOffice, and other spreadsheet software. At the end of the workshop, learners should be able to identify the best practices for designing a spreadsheet and entering data, compare different data formats, and be able to use spreadsheet software for basic data validation. This workshop is designed for learners who have basic familiarity with spreadsheet programs. No coding experience is required.  All participants will need a computer with Microsoft Excel 2016 or newer, and the latest version of Zoom. 
+
+![](img/quickmeme_iexcel.jpg){ width=250px height=250px}
+
 
 # Introduction
 
