@@ -186,14 +186,14 @@ Lastly, [as mentioned](#datalifecycle), it is important to describe and document
 
 From the above tips, you'd want to document details about your:  
 
-*Column names
+* Column names
   * What do they stand for? 
   * What data type should they be? What is their source?
-*Variable codes
+* Variable codes
   * What do the abbreviations in your columns stand for? 
   * What are the acceptable values for a variable? 
   * How are missing data indicated?
-*Datasets
+* Datasets
   * How do datasets, if there are more than one, relate to one another? 
   * Which is the "master" or "raw" data? which has been processed or cleaned, and if so, how? 
   * What code or filters did you use?
