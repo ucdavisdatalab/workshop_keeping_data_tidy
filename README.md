@@ -5,7 +5,8 @@ This repo is the home for DataLab's "Excelling with Excel: Best Practices for Ke
 * Pamela Reynolds, UC Davis DataLab
 
 ### Links
-* 2021 workshop offering event page: https://datalab.ucdavis.edu/eventscalendar/excelling-with-excel-best-practices-for-keeping-your-data-tidy/
+* 2021 workshop offering reader: https://ucdavisdatalab.github.io/workshop_keeping_data_tidy/
+* 2021 workshop offering event webpage: https://datalab.ucdavis.edu/eventscalendar/excelling-with-excel-best-practices-for-keeping-your-data-tidy/
 * workshop reader storage: https://datalab.ucdavis.edu/workshop-keeping-data-tidy
 
 ### Protocols
