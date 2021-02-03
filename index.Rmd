@@ -202,7 +202,7 @@ The answers to these questions can be stored in a `README.txt` file that follows
 
 For more information about metadata and data documentation, we will be holding [another workshop in March on this topic](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/) (registration required)
 
-# Data Validation (Pamela)
+# Principles to Practice
 
 # Additional Resources {#resources}
 
