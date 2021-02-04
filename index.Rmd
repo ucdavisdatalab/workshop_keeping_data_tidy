@@ -144,9 +144,9 @@ While Excel allows you to use different tabs within one Excel document, it is be
 
 ## 7. Keep your data "raw". 
 
-Once you have a dataset that is clean and organized following the best practices, save this file as a "raw" or “master” file.  Avoid doing any analyses or further processing in the same, original dataset. Instead, create a new file to do these further processing or analysis steps (you can call it "processed", or some other descriptor about the analysis being done). 
+Always, always, always save a copy of the original ("raw") version of your data.  Adding "original" or "raw" as a suffix to the filename can be helpful for you to remember the origin of the file.  If data cleaning is necessary, save a new version (you can add the suffix "raw_cleaned" to the filename).  Avoid doing any analyses or further processing in these versions. Instead, create a new file to do these further processing or analysis steps (you can call it "processed," or some other descriptor about the analysis being done). 
 
-You can even go so far as to make your raw data read only - forcing future you, or any collaborators, to have to make a copy in order to edit it.
+Pro tip: if you're working in a spreadsheet program like Excel, make your origin/raw data read only. This forces future you, or any collaborators, to have to make a copy in order to edit it.
 
 **How to make a file read-only in Excel 2016+**: 
 
@@ -181,7 +181,25 @@ One of the simplest ways to implement version control is to have a naming system
 
 ![](http://www.phdcomics.com/comics/archive/phd052810s.gif)
 
-It may also be worth exploring a version control system software that can store your versions on a server and contains information about specific changes between versions, as well as allow you to collaborate with others or revert changes back to past versions. **Git** is a popular version control software, which you can explore more in [DataLab's upcoming workshops](#resources).
+Consistently using the same naming scheme can help you manually track your versions, and avoid later headaches when you can't remember which document you should be working on - "final final" or "final v2"??? 
+
+### How to name your files
+
+Filenames should be both human and machine readable, and plays well with default ordering. Regardless, your naming scheme should be easy for you and your collaborators to remember and implement consistently. 
+
+**Human readable filenames** contain useful information regarding the file content that can help you identify the file you want without having to open it. The origin date and/or provenance of the file, study system or author name, brief "slug" description of what was performed on the data, and the date the file was processed can all be useful to include in the filename. Starting the filename with something numeric (i.e., the dates) will harness default ordering to display your files in a logical order on your machine (example, 2021-02-08_workshop_tidy-data or 01_workshop_tidy-data, vs tidy-data_workshop_2_08_2021). For dates, use ISO 8601 standard (YYY-MM-DD) to ensure chronological ordering and make it easier to share files with international collaborators. Similarly, for numbers make sure to "left pad" them (01 vs 1). 
+
+**Machine readable filenames** are structured so it's easy for your computer to search for the files later. To facilitate this avoid spaces, punctuation, and accented characters in your filenames. 
+
+Decide whether to consistently use dashes (this-is-my-awesome-file), underscores (this_is_my_awesome_file), or camelcase (ThisIsMyAwesomeFile), and don't rely on case sensitivity for your naming scheme (thisismyAWESOMEfile and THISISmyawesomefile are two different files!). We prefer dashes or underscores (or a pre-determined combination of the two) because it helps the filename to be easily human readable, as well as to be able to programmatically recover metadata from the filenames (i.e., using regex or scripting in a program like R or Python). For example, you can use underscores to delimit units of meta-data, and hyphens to delimit words (this_is_my_awesome-file). 
+
+For similar data files, or versions, you can use 'globbing' to make it easier for you and your computer to find relevant files (e.g., 2021_workshop_tidy-data.Rmd, 2021_workshop_text-mining-NLP.Rmd, and 2021_workshop_intro-Python.Rmd can all be quickly found together becuase they contain the prefix of "2021_workshop."
+
+Regardless of what scheme you pick, stay consistent and it will make your work much easier! 
+
+### Version control software can do it for you
+
+If manual version control works for you, great! As you start working on larger and more complex projects, particularly ones with multiple collaborators, it's worth exploring a programmatic version control approcah - using software that can track your versions (and what's changed within them). This can faciliate your ability to collaborate with others and quickly revert to past versions or incorporate changes from multiple versions into one primary document. **Git** is a popular free version control software, which you can learn more about how to use in [DataLab's upcoming workshops](#resources).
 
 ## 10. Document your data. 
 
