@@ -70,9 +70,9 @@ In this section, we list some of the best practices to follow when entering and 
 
 ## 1. Keep variables in columns, observations in rows. {#one}
 
-In a spreadsheet (or data stored in a tabular form), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice to place your variables in columns, and separate observations in rows. Then, all the cells in a row will be part of one observation (each defining a different variable) and all the cells in a column will represent values of that variable across observations. 
+In a spreadsheet (or data stored in a tabular form), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice to place your variables in columns, and separate observations in rows. In this "coordinate" format, all cells represent the intersection of an observation and a variable (i.e. the value of that variable for that observation). 
 
-**Why do this?**  This follows the formats and style of many other data processors, such as more formal, SQL-based relational databases and the ["tidy" format](https://r4ds.had.co.nz/tidy-data.html) facilitated by coding in languages like R.
+**Why do this?**  This is consistent with the formats and style of many other data processors, such as more formal, SQL-based relational databases and the ["tidy" format](https://r4ds.had.co.nz/tidy-data.html) that facilitates programatic analysis in languages like R or Python.
 
 **Examples**: 
 
@@ -95,7 +95,7 @@ Further, if you end up exporting your data to coding languages or other data pro
 
 ## 3. Add notes and comments in separate columns. {#three}
 
-Given that we should enter one data unit / type into our columns (above), a common follow up is: *What about notes, though?* Of course, it's important including notes, comments, and disclaimers about samples or observations. However, including these directly in your cells along with data points will lead to the problems downstream in analysis solved by #2. As a solution, create a new column called "notes" or "comments". If you'd like to restrict notes to certain variables, you can have multiple notes columns, and include this in their column names.
+Given that we should enter one data unit / type into our columns (above), a common follow up is: *What about notes, though?* Of course, it's important to include notes, comments, and disclaimers about samples or observations. However, including these directly in your cells along with data points will lead to the problems downstream in analysis solved by #2. As a solution, create a new column called "notes" or "comments". If you'd like to restrict notes to certain variables, you can have multiple notes columns, and include this in their column names.
 
 It's best to avoid
 
@@ -103,10 +103,11 @@ It's best to avoid
     * This includes asterisks, or "see notes" notes!
   * using the hovering comments function found in "Review" 
     * This will be lost outside of Excel (see #X about non-proprietary formats) 
+    * They're also difficult to find without hovering over cells
   * using color-coding to highlight issues or questionable cells
     * see [#4](#four) 
 
-**Why do this?** As in [#2](#two), this avoids multiple types in cells that can muck up downstream analysis or imports into programming languages or other softwares. This also keeps variables "atomized" and organized into the smallest units of information, helping your collaborators (including future you!) find information easier. 
+**Why do this?** As in [#2](#two), this avoids multiple types in cells that can muck up downstream analysis or imports into programming languages or other softwares. For instance, your computer doesn't understand that "Alaska (note: pre-statehood)" is the same as "Alaska" in terms of analysis. By keeping notes separate, you keep variables "atomized" and organized into the smallest units of information, helping your collaborators (including future you!) find information easier. 
 
 **Examples**: 
 
@@ -114,20 +115,22 @@ It's best to avoid
 
 ## 4. Code information explicitly in cells rather than in formatting. {#four}
 
-While using color codes, bold and italics to indicate information about data points is tempting, it is best to avoid actually storing or coding information in formats. Instead of using color codes, make this information coded by color or font format explicit its own column. 
+While using color codes, bold and italics to indicate information about data points is tempting, it is best to avoid actually storing or coding information in formats. Instead of using color codes, "hard code" this information explicit its own column. Note that it is OK to use color codes to help draw your eye, visually sort your data, or flag strange values, but it's critical that the information in color codes - even if they are quality flags or questions - are hard-coded into an actual cell. 
 
-**Why do this?**  Data included in these formatting is not made explicit (i.e. is not stored in a cell, in a recognizeable data type). These formats will thus be hard to analyze (how do you search for or sort by a color?). Further, these formats are Excel-specific and will be lost in other data formats (see #X) and when exported into programming languages or other data processors. 
+**Why do this?**  Data included in these formatting is not made explicit (i.e. is not stored in a cell, in a recognizeable data type). These formats will thus be hard to analyze (how do you search for or sort by a color?). Further, these formats are often Excel- or spreadsheet-specific and will be lost in other data formats (see [#8](#eight)) and when exported into programming languages.
 
 **Examples**: 
 
 ![](img/tip4_example.png)
 
-## 5. Be consistent with variable names and codes. 
+## 5. Be consistent with variable codes formats, and units. 
 
 Often, variable levels or categories may be very long, and during data entry, you may want to use abbreviations or shorthand to make data entry easier. This is fine! But if you choose to use codes, make sure to do two things: 
 
-  1. be consistent, using the same codes and names across the entire column and all your associated datasets; and 
+  1. be consistent, using the same codes and formats across the entire column and all your associated datasets; and 
   2. record the full code names in your data documentation (often referred to as **metadata**, your data about your data). *(To learn more about metadata, see [our associated workshop](#readme_workshop).)*
+
+For numerical measurements, also be sure to keep units consistent. Is your latitude / longitude entered in minutes/seconds format or in decimal format? Are your weights entered in pounds or kilograms, distance in miles or kilometers? It can help to include the unit in the column name, so you know to enter data in the correct units. 
 
 **Why do this?**  Consistent codes within variables/columns will make downstream analysis easier, such as trying to sort or summarize data based on levels of a variable. Keeping variable names (i.e. your column names, the top row of your spreadsheet) consistent across datasets or spreadsheets will make joining these datasets together - such as in a relational manner - straightforward in future analyses. All of this will improve the interpretability of your data for collaborators and your future self, increasing transparency and reproducibility. 
 
@@ -136,7 +139,7 @@ Often, variable levels or categories may be very long, and during data entry, yo
 ![](img/tip5_example.png)
 
 ## 6. Store one dataset per file. 
-Avoid "stacking" multiple datasets (i.e. observations with different variable or column names) within one spreadsheet. This also confuses the computer / Excel, which considers one row an observation and one column a variable (see [#1](#one)). Move these separate tables or datasets to their own file. 
+Avoid "stacking" multiple datasets (i.e. observations with different variable or column names) within one spreadsheet. This also confuses the computer / Excel, which considers one row an observation and one column a variable (see [#1](#one)). Move these separate tables or datasets to their own file, or combine them using more columns or rows. 
 
 While Excel allows you to use different tabs within one Excel document, it is best to save separate datasets as separate files. It's okay to use a new tab as a sandbox for exploratory analyses, but ultimately, if you want to save data for future use, save it in a new, separate file. 
 
@@ -171,9 +174,9 @@ As great as Excel is, it is Microsoft's proprietary software that does not trans
 ![](img/xlsx_text_editor.png){width=384px height=260px}
 
 All of your data is obscured this way! 
-These files are not accessible to many other data processors and managers, nor are they easily importable into programming languages like R for downstream analysis. While you might currently have access to Excel, you may lose access in the future, or may have collaborators without access to the software. Using non-proprietary formats increases the longevity and access to your data. In fact, many field-specific and governmental data archives are requiring data to be deposited in non-proprietary formats. Further, these "open" formats work better with version control softwares, like git (see next, #9).
+These files are not accessible to many other data processors and managers, nor are they easily importable into programming languages like R for downstream analysis. While you might currently have access to Excel, you may lose access in the future, or may have collaborators without access to the software. Using non-proprietary formats increases the longevity and access to your data. In fact, many field-specific and governmental data archives are requiring data to be deposited in non-proprietary formats. Further, these "open" formats work better with version control softwares, like git (see next, [#9](#nine)).
 
-## 9. Control your versions (or they will control you!)
+## 9. Control your versions (or they will control you!) {#nine}
 
 As your project continues, you will likely collect data multiple times, add data, and end up formatting and processing your data in many ways. In addition to keeping your data raw, you should keep the different iterations of your dataset, or versions, delineated. This process of storing multiple versions or iterations of a file is called **version control**. 
 
