@@ -123,7 +123,7 @@ While using color codes, bold and italics to indicate information about data poi
 
 ![](img/tip4_example.png)
 
-## 5. Be consistent with variable codes formats, and units. 
+## 5. Be consistent with variable codes, formats, and units. 
 
 Often, variable levels or categories may be very long, and during data entry, you may want to use abbreviations or shorthand to make data entry easier. This is fine! But if you choose to use codes, make sure to do two things: 
 
