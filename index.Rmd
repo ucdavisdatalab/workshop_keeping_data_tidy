@@ -237,3 +237,12 @@ For more information about metadata and data documentation, we will be holding [
   * Past recordings: 
     * [Fall 2019 (video)](https://github.com/ucdavisdatalab/workshop-intro-to-sql-for-querying-databases)
       * [Associated repository materials](https://github.com/ucdavisdatalab/workshop-intro-to-sql-for-querying-databases)
+
+### Data Sources
+
+The data used in the examples was downloaded and modifed from [Data.world : Black History Month Week 3: Women in Black History](
+https://data.world/black-history-month/black-history-month-week-3-gender-equality/workspace/dataset?agentid=black-history-month&datasetid=black-history-month-week-3-gender-equality), accessed on 2021-01-24. 
+
+For more information about women of color in the U.S. Congress, see [this Rutgers University factsheet](https://cawp.rutgers.edu/fact-sheets-women-color).
+
+
