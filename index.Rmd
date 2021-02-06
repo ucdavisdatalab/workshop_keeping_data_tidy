@@ -15,7 +15,7 @@ library(knitr)
 
 # Overview
 
-This workshop introduces learners to best practices for data entry and organization for data-driven projects. With interactive, hands-on examples we’ll practice using data validation tools including filters, restricted vocabularies, and flags in Microsoft Excel. These skills are also applicable to working in Google Sheets, LibreOffice, and other spreadsheet software. At the end of the workshop, learners should be able to identify the best practices for designing a spreadsheet and entering data, compare different data formats, and be able to use spreadsheet software for basic data validation. This workshop is designed for learners who have basic familiarity with spreadsheet programs. No coding experience is required.  All participants will need a computer with Microsoft Excel 2016 or newer, and the latest version of Zoom. 
+This workshop introduces learners to best practices for data entry and organization for data-driven projects. With interactive, hands-on examples we’ll practice using data validation tools including filters, controlled vocabularies, and flags in Microsoft Excel. These skills are also applicable to working in Google Sheets, LibreOffice, and other spreadsheet software. At the end of the workshop, learners should be able to identify the best practices for designing a spreadsheet and entering data, compare different data formats, and be able to use spreadsheet software for basic data validation. This workshop is designed for learners who have basic familiarity with spreadsheet programs. No coding experience is required.  All participants will need a computer with Microsoft Excel 2016 or newer, and the latest version of Zoom. 
 
 ![](img/quickmeme_iexcel.jpg){ width=250px height=250px}
 
@@ -70,9 +70,9 @@ In this section, we list some of the best practices to follow when entering and 
 
 ## 1. Keep variables in columns, observations in rows. {#one}
 
-In a spreadsheet (or data stored in a tabular form), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice to place your variables in columns, and separate observations in rows. In this "coordinate" format, all cells represent the intersection of an observation and a variable (i.e. the value of that variable for that observation). 
+In a spreadsheet (or data stored in a tabular format), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice to place your variables in columns, and separate observations in rows. In this "coordinate" format, all cells represent the intersection of an observation and a variable (i.e. the value of that variable for that observation). 
 
-**Why do this?**  This is consistent with the formats and style of many other data processors, such as more formal, SQL-based relational databases and the ["tidy" format](https://r4ds.had.co.nz/tidy-data.html) that facilitates programatic analysis in languages like R or Python.
+**Why do this?**  This is consistent with the format of many other data processors, such as more formal, SQL-based relational databases and the ["tidy" format](https://r4ds.had.co.nz/tidy-data.html) that facilitates programatic analysis in languages like R or Python. For more on this, see [#2](#two).
 
 **Examples**: 
 
@@ -87,7 +87,7 @@ Considering that the cell is the smallest "unit of measurement", each cell in th
 Lastly, make sure that you aren't inadverently storing multiple "units" of information in one cell, even if they are the same type (e.g. numbers). Some common examples are including birth and death dates (a range) in one cell, or latitude and longitude in the same cell in a column. 
 
 **Why do this?**  This will facilitate analyses down the line. Have you ever tried to sort a column in Excel and gotten the annoying error that asks you to "sort everything that looks like a number like a number"? This will helo avoid this issue, but will also allow you to accurately use functions like sort, calculate sums, averages, and run analyses on variables as separate units, without having your data be "polluted" by excess information. 
-Further, if you end up exporting your data to coding languages or other data processors, you may lose data that does not match the type exported, or experience errors where these mismatched types are converted into new values or into NAs. 
+Further, if you end up programmatically analyzing your data using languages (like R or Python) or other data processing software, you may lose data that does not match the type exported, or experience errors where these mismatched types are converted into new values or into NAs. 
 
 **Examples**: 
 
@@ -95,7 +95,7 @@ Further, if you end up exporting your data to coding languages or other data pro
 
 ## 3. Add notes and comments in separate columns. {#three}
 
-Given that we should enter one data unit / type into our columns (above), a common follow up is: *What about notes, though?* Of course, it's important to include notes, comments, and disclaimers about samples or observations. However, including these directly in your cells along with data points will lead to the problems downstream in analysis solved by #2. As a solution, create a new column called "notes" or "comments". If you'd like to restrict notes to certain variables, you can have multiple notes columns, and include this in their column names.
+Given that we should enter one data unit / type into our columns (above), a common follow up is: *What about notes, though?* Of course, it's important to include notes, comments, and disclaimers about samples or observations. However, including these directly in your cells along with data points will lead to problems downstream in analysis. As a solution, create a new column called "notes" or "comments". If you'd like to restrict notes to certain variables, you can have multiple notes columns, and include the specific variable they refer to in their column names.
 
 It's best to avoid
 
@@ -107,7 +107,7 @@ It's best to avoid
   * using color-coding to highlight issues or questionable cells
     * see [#4](#four) 
 
-**Why do this?** As in [#2](#two), this avoids multiple types in cells that can muck up downstream analysis or imports into programming languages or other softwares. For instance, your computer doesn't understand that "Alaska (note: pre-statehood)" is the same as "Alaska" in terms of analysis. By keeping notes separate, you keep variables "atomized" and organized into the smallest units of information, helping your collaborators (including future you!) find information easier. 
+**Why do this?** As in [#2](#two), this avoids multiple types in cells that can muck up downstream analysis or imports into programming languages or other software. For instance, your computer doesn't understand that "Alaska (note: pre-statehood)" is the same as "Alaska" in terms of analysis. By keeping notes separate, you keep variables "atomized" and organized into the smallest units of information, helping your collaborators (including future you!) find information easier. 
 
 **Examples**: 
 
@@ -115,9 +115,9 @@ It's best to avoid
 
 ## 4. Code information explicitly in cells rather than in formatting. {#four}
 
-While using color codes, bold and italics to indicate information about data points is tempting, it is best to avoid actually storing or coding information in formats. Instead of using color codes, "hard code" this information explicit its own column. Note that it is OK to use color codes to help draw your eye, visually sort your data, or flag strange values, but it's critical that the information in color codes - even if they are quality flags or questions - are hard-coded into an actual cell. 
+While using color codes, bold and italics to indicate information about data points is tempting, it is best to avoid actually coding information in formatting. Instead of using color codes, "hard code" this information explicitly in its own column. Note that it is OK to use color codes to help draw your eye, visually sort your data, or flag values, but it's critical that the information in color codes is also hard-coded into an actual cell. 
 
-**Why do this?**  Data included in these formatting is not made explicit (i.e. is not stored in a cell, in a recognizeable data type). These formats will thus be hard to analyze (how do you search for or sort by a color?). Further, these formats are often Excel- or spreadsheet-specific and will be lost in other data formats (see [#8](#eight)) and when exported into programming languages.
+**Why do this?**  Data included in these formatting is not made explicit (i.e. is not stored in a cell, in a recognizeable data type). These data will thus be hard to analyze (how do you search for or sort by a color?). Further, formatting is Excel- or spreadsheet-specific and will be lost when exported to other programs (see [#8](#eight). 
 
 **Examples**: 
 
@@ -132,7 +132,7 @@ Often, variable levels or categories may be very long, and during data entry, yo
 
 For numerical measurements, also be sure to keep units consistent. Is your latitude / longitude entered in minutes/seconds format or in decimal format? Are your weights entered in pounds or kilograms, distance in miles or kilometers? It can help to include the unit in the column name, so you know to enter data in the correct units. 
 
-**Why do this?**  Consistent codes within variables/columns will make downstream analysis easier, such as trying to sort or summarize data based on levels of a variable. Keeping variable names (i.e. your column names, the top row of your spreadsheet) consistent across datasets or spreadsheets will make joining these datasets together - such as in a relational manner - straightforward in future analyses. All of this will improve the interpretability of your data for collaborators and your future self, increasing transparency and reproducibility. 
+**Why do this?**  Consistent codes within variables/columns will make downstream analysis, such as trying to sort or summarize data based on levels of a variable, easier. Keeping variable names (i.e. your column names, the top row of your spreadsheet) consistent across datasets or spreadsheets will make joining these datasets together straightforward in future analyses. All of this will improve the interpretability of your data for collaborators and your future self, increasing transparency and reproducibility. 
 
 **Examples**: 
 
@@ -147,7 +147,7 @@ While Excel allows you to use different tabs within one Excel document, it is be
 
 ## 7. Keep your data "raw". 
 
-Always, always, always save a copy of the original ("raw") version of your data.  Adding "original" or "raw" as a suffix to the filename can be helpful for you to remember the origin of the file.  If data cleaning is necessary, save a new version (you can add the suffix "raw_cleaned" to the filename).  Avoid doing any analyses or further processing in these versions. Instead, create a new file to do these further processing or analysis steps (you can call it "processed," or some other descriptor about the analysis being done). 
+Always, always, always save a copy of the original ("raw") version of your data.  Adding "original" or "raw" as a suffix to the filename can be helpful for you to remember the origin of the file.  If data cleaning is necessary, save a new version (you can add the suffix "raw_cleaned" to the filename).  Avoid doing any analyses or further processing in these versions. Instead, create a new file to do these further processing or analysis steps (you can call it "processed" or "analyzed").
 
 Pro tip: if you're working in a spreadsheet program like Excel, make your origin/raw data read only. This forces future you, or any collaborators, to have to make a copy in order to edit it.
 
@@ -164,7 +164,7 @@ Your file should always prompt the next user to open read-only from here on out.
 
 ## 8. Save your files in a non-proprietary format. {#eight}
 
-As great as Excel is, it is Microsoft's proprietary software that does not translate to long-term data storage or cannot be read by many other data management / database systems or programming languages. For longevity of your data, store your data in a non-proprietary ("generic") format, such as:
+As great as Excel is, it is Microsoft's proprietary software that does not translate to long-term data storage or cannot be read by many other data management / database systems or programming languages. For longevity of your data, store your data in a non-proprietary ("open") format, such as:
 
 * **.csv**: comma-separated values. Cells in columns are separated by commas across the rows. Good for most quantitative uses, may be problematic for text data with full sentences and strings that include punctuation like commas. 
 * **.tsv**: tab-separated values. Similar to .csv, but cells are separted by tabs. A better alternative for data types that include commas and other punctuation.  

@@ -1,5 +1,5 @@
 # Workshop: Excelling with Excel: Keeping Data Tidy
-This repo is the home for DataLab's "Excelling with Excel: Best Practices for Keeping Your Data Tidy" workshop which introduces learners to best practices for data entry and organization for data-drive projects.
+This repo is the home for DataLab's "Excelling with Excel: Best Practices for Keeping Your Data Tidy" workshop which introduces learners to best practices for data entry and organization for data-driven projects.
 
 ### Maintainers
 * Pamela Reynolds, UC Davis DataLab
