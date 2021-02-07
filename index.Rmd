@@ -229,6 +229,26 @@ For more information about metadata and data documentation, we will be holding [
 
 # Principles to Practice
 
+## Data Validation
+
+**Data validation** is a critical aspect of the reseach data lifecycle. It's is the often ongoing process of ensuring the accuracy and quality of your data so that they are useful and can be analyzed. Employing validation rules (or checks) both before and after entering your data can help you ensure that your data are logical and fit necessary parameters. One common example is controlling numerical values so they fall within expected bounds (0-1 for a percent, for example) and that levels for a character data type are standardized and spelled correctly (percent vs Percent, per, or %). Leveraging built-in tools in your spreadsheet processor to automate validation logic and populating data dictionaries at the start of your project can help reduce the amount of subsequent necessary data cleaning. It can also help identify suspect cells after you've finished entering your data. 
+
+Some important data validation checks you should always perform on your data are:
+
+* Data-type check - only expected characters are present in a field (ex. numbers only acceptd for numeric, text only accepted for character types)
+* Format check - data are in a specified format (ex. dates must be formatted as YYYY-MM-DD)
+* Range check - data are within a specified range of values (ex. the range must be 0-1 for a percent)
+* Code (or levels) check - data are consistent with one or more external rules (ex. experimental condition can only be 'placebo' or 'treatment', spelled correctly and case sensitive)
+* Consistency check - entries across fields are logical (ex. the date of death cannot be earlier than the date of birth)
+* Uniqueness check - each value is unique (ex. each subject, or row, must have a unique ID number)
+
+*While for reprodicibility and scientific integrity purposes we encourage researchers to validate, clean, and process their data in coding-based software (like R or Python), Excel is a commonly used and powerful tool. It "Excels" at being straightforward for onboarding new research assistants to enter small-ish, simple datasets. And you can leverage its built-in data validation tools (discussed below) to help ensure higher quality data capture.* 
+
+## Data Validation in Excel
+
+
+
+
 # Additional Resources {#resources}
 
 ### DataLab Workshops 
