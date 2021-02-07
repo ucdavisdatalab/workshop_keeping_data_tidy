@@ -102,7 +102,7 @@ It's best to avoid
   * adding notes directly in cells with your data points
     * This includes asterisks, or "see notes" notes!
   * using the hovering comments function found in "Review" 
-    * This will be lost outside of Excel (see #X about non-proprietary formats) 
+    * This will be lost outside of Excel (see below about non-proprietary formats) 
     * They're also difficult to find without hovering over cells
   * using color-coding to highlight issues or questionable cells
     * see [#4](#four) 
@@ -210,21 +210,22 @@ Lastly, [as mentioned](#datalifecycle), it is important to describe and document
 
 From the above tips, you'd want to document details about your:  
 
-* Column names
+* Column names within a dataset
   * What do they stand for? 
-  * What data type should they be? What is their source?
-* Variable codes
+  * What data type should they be? 
+  * What is their source? Can these data be shared?
+* Variable codes within columns
   * What do the abbreviations in your columns stand for? 
-  * What are the acceptable values for a variable? 
+  * What are the acceptable values for a variable? How many levels are there?
   * How are missing data indicated?
 * Datasets
   * How do datasets, if there are more than one, relate to one another? 
-  * Which is the "master" or "raw" data? which has been processed or cleaned, and if so, how? 
+  * Which are the "original" or "raw" data files? Which have been processed or cleaned, and if so, how? 
   * What code or filters did you use?
 
 The answers to these questions can be stored in a `README.txt` file that follows along in your folder directory, acting as a "buddy" to your datasets, code, and the files it describes. No dataset should go alone without an accompanying README or documentation! 
 
-For more information about metadata and data documentation, we will be holding [another workshop in March on this topic](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/) (registration required)
+For more information about metadata and data documentation, we will be holding [another virtual workshop in March on this topic](https://datalab.ucdavis.edu/eventscalendar/readme-write-me/) (registration for Zoom link required).
 
 # Principles to Practice
 
