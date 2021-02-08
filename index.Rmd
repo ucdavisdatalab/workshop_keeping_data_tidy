@@ -291,6 +291,13 @@ Try the following in the demo dataset:
     * [Fall 2019 (video)](https://github.com/ucdavisdatalab/workshop-intro-to-sql-for-querying-databases)
       * [Associated repository materials](https://github.com/ucdavisdatalab/workshop-intro-to-sql-for-querying-databases)
 
+### More Information on Best Practices 
+
+* [Data Best Practices Primer  | DataOne](https://old.dataone.org/sites/all/documents/DataONE_BP_Primer_020212.pdf)
+
+* [Spreadsheet Best Practices | Data Carpentry](https://datacarpentry.org/spreadsheets-socialsci/)
+
+
 ### Data Sources
 
 The data used in the examples was downloaded and modifed from [Data.world : Black History Month Week 3: Women in Black History](
