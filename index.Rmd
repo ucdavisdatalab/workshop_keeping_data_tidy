@@ -248,7 +248,7 @@ Some important data validation checks you should always perform on your data are
 
 We'll use the tidy version of the Women of Color Congress dataset to practice a few different different data validation tools in Excel.
 
-Demo dataset: 
+Demo dataset: [2021_workshop-tidy-data_demo_woc-congress_clean.xlsx](workshop_keeping_data_tidy/2021_workshop-tidy-data_demo_woc-congress_clean.xlsx)
 
 Try the following in the demo dataset:
 
