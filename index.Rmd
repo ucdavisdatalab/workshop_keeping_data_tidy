@@ -68,6 +68,8 @@ In an upcoming workshop (March 4th, 2021), we will be discussing metadata and do
 
 In this section, we list some of the best practices to follow when entering and arranging data in Excel. These quick tips will help with data analysis and interpretation down the line, making your data more shareable and reproducible. 
 
+The data for the examples comprises historical data on women of color in the U.S. Congress, and the "dirty" version shown can be accessed [here](workshop_keeping_data_tidy/2021_workshop-tidy-data_demo_woc-congress_messy.xlsx). 
+
 ## 1. Keep variables in columns, observations in rows. {#one}
 
 In a spreadsheet (or data stored in a tabular format), the smallest "unit of measurement" is a **cell**, such as cell A1. It is best practice to place your variables in columns, and separate observations in rows. In this "coordinate" format, all cells represent the intersection of an observation and a variable (i.e. the value of that variable for that observation). 

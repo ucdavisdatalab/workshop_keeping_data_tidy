@@ -1600,7 +1600,10 @@ document.addEventListener('DOMContentLoaded', function() {
       <li><a href="#nine">9. Control your versions (or they will control you!)</a></li>
       <li><a href="#document-your-data.">10. Document your data.</a></li>
       </ul></li>
-      <li><a href="#principles-to-practice">Principles to Practice</a></li>
+      <li><a href="#principles-to-practice">Principles to Practice</a><ul>
+      <li><a href="#data-validation">Data Validation</a></li>
+      <li><a href="#data-validation-in-excel">Data Validation in Excel</a></li>
+      </ul></li>
       <li><a href="#resources">Additional Resources</a></li>
       </ul>
     </div>
@@ -1664,6 +1667,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="spreadsheet-best-practices" class="section level1">
 <h1>Spreadsheet Best Practices</h1>
 <p>In this section, we list some of the best practices to follow when entering and arranging data in Excel. These quick tips will help with data analysis and interpretation down the line, making your data more shareable and reproducible.</p>
+<p>The data for the examples comprises historical data on women of color in the U.S. Congress, and the “dirty” version shown can be accessed <a href="workshop_keeping_data_tidy/2021_workshop-tidy-data_demo_woc-congress_messy.xlsx">here</a>.</p>
 <div id="one" class="section level2">
 <h2>1. Keep variables in columns, observations in rows.</h2>
 <p>In a spreadsheet (or data stored in a tabular format), the smallest “unit of measurement” is a <strong>cell</strong>, such as cell A1. It is best practice to place your variables in columns, and separate observations in rows. In this “coordinate” format, all cells represent the intersection of an observation and a variable (i.e. the value of that variable for that observation).</p>
@@ -1691,7 +1695,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul></li>
 <li>using the hovering comments function found in “Review”
 <ul>
-<li>This will be lost outside of Excel (see #X about non-proprietary formats)</li>
+<li>This will be lost outside of Excel (see below about non-proprietary formats)</li>
 <li>They’re also difficult to find without hovering over cells</li>
 </ul></li>
 <li>using color-coding to highlight issues or questionable cells
@@ -1759,11 +1763,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Consistently using the same naming scheme can help you manually track your versions, and avoid later headaches when you can’t remember which document you should be working on - “final final” or “final v2”???</p>
 <div id="how-to-name-your-files" class="section level3">
 <h3>How to name your files</h3>
-<p>Filenames should be both human and machine readable, and plays well with default ordering. Regardless, your naming scheme should be easy for you and your collaborators to remember and implement consistently.</p>
+<p>Filenames should be both human and machine readable, and play well with default ordering. Most importantly your naming scheme should be easy for you and your collaborators to remember and implement consistently.</p>
 <p><strong>Human readable filenames</strong> contain useful information regarding the file content that can help you identify the file you want without having to open it. The origin date and/or provenance of the file, study system or author name, brief “slug” description of what was performed on the data, and the date the file was processed can all be useful to include in the filename. Starting the filename with something numeric (i.e., the dates) will harness default ordering to display your files in a logical order on your machine (example, 2021-02-08_workshop_tidy-data or 01_workshop_tidy-data, vs tidy-data_workshop_2_08_2021). For dates, use ISO 8601 standard (YYY-MM-DD) to ensure chronological ordering and make it easier to share files with international collaborators. Similarly, for numbers make sure to “left pad” them (01 vs 1).</p>
-<p><strong>Machine readable filenames</strong> are structured so it’s easy for your computer to search for the files later. To facilitate this avoid spaces, punctuation, and accented characters in your filenames.</p>
-<p>Decide whether to consistently use dashes (this-is-my-awesome-file), underscores (this_is_my_awesome_file), or camelcase (ThisIsMyAwesomeFile), and don’t rely on case sensitivity for your naming scheme (thisismyAWESOMEfile and THISISmyawesomefile are two different files!). We prefer dashes or underscores (or a pre-determined combination of the two) because it helps the filename to be easily human readable, as well as to be able to programmatically recover metadata from the filenames (i.e., using regex or scripting in a program like R or Python). For example, you can use underscores to delimit units of meta-data, and hyphens to delimit words (this_is_my_awesome-file).</p>
-<p>For similar data files, or versions, you can use ‘globbing’ to make it easier for you and your computer to find relevant files (e.g., 2021_workshop_tidy-data.Rmd, 2021_workshop_text-mining-NLP.Rmd, and 2021_workshop_intro-Python.Rmd can all be quickly found together becuase they contain the prefix of “2021_workshop.”</p>
+<p><strong>Machine readable filenames</strong> are structured so it’s easy for your computer to search for the files later and for other software programs to import the files successfully. To facilitate this avoid spaces, punctuation, and accented characters in your filenames.</p>
+<p>Decide whether to consistently use dashes (this-is-my-awesome-file), underscores (this_is_my_awesome_file), or camelcase (ThisIsMyAwesomeFile). Do not rely on case sensitivity for your naming scheme (thisismyAWESOMEfile and THISISmyawesomefile are two different files). We prefer dashes or underscores (or a pre-determined combination of the two) because it helps the filename to be easily human readable. It also allows us to programmatically recover metadata from the filenames (i.e., using regex or scripting in a program like R or Python). For example, you can use underscores to delimit units of meta-data, and hyphens to delimit words (this-is-my_awesome-file or 2021-02-08_workshop_tidy-data).</p>
+<p>For similar data files, or versions, you can use ‘globbing’ to make it easier for you and your computer to find relevant files (e.g., 2021_workshop_tidy-data.Rmd, 2021_workshop_text-mining-NLP.Rmd, and 2021_workshop_intro-Python.Rmd can all be quickly found together becuase they contain the prefix of “2021_workshop”).</p>
 <p>Regardless of what scheme you pick, stay consistent and it will make your work much easier!</p>
 </div>
 <div id="version-control-software-can-do-it-for-you" class="section level3">
@@ -1776,30 +1780,65 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Lastly, <a href="#datalifecycle">as mentioned</a>, it is important to describe and document all the decisions you make with your dataset. This data about your data is called <strong>metadata</strong>.</p>
 <p>From the above tips, you’d want to document details about your:</p>
 <ul>
-<li>Column names
+<li>Column names within a dataset
 <ul>
 <li>What do they stand for?</li>
-<li>What data type should they be? What is their source?</li>
+<li>What data type should they be?</li>
+<li>What is their source? Can these data be shared?</li>
 </ul></li>
-<li>Variable codes
+<li>Variable codes within columns
 <ul>
 <li>What do the abbreviations in your columns stand for?</li>
-<li>What are the acceptable values for a variable?</li>
+<li>What are the acceptable values for a variable? How many levels are there?</li>
 <li>How are missing data indicated?</li>
 </ul></li>
 <li>Datasets
 <ul>
 <li>How do datasets, if there are more than one, relate to one another?</li>
-<li>Which is the “master” or “raw” data? which has been processed or cleaned, and if so, how?</li>
+<li>Which are the “original” or “raw” data files? Which have been processed or cleaned, and if so, how?</li>
 <li>What code or filters did you use?</li>
 </ul></li>
 </ul>
 <p>The answers to these questions can be stored in a <code>README.txt</code> file that follows along in your folder directory, acting as a “buddy” to your datasets, code, and the files it describes. No dataset should go alone without an accompanying README or documentation!</p>
-<p>For more information about metadata and data documentation, we will be holding <a href="https://datalab.ucdavis.edu/eventscalendar/readme-write-me/">another workshop in March on this topic</a> (registration required)</p>
+<p>For more information about metadata and data documentation, we will be holding <a href="https://datalab.ucdavis.edu/eventscalendar/readme-write-me/">another virtual workshop in March on this topic</a> (registration for Zoom link required).</p>
 </div>
 </div>
 <div id="principles-to-practice" class="section level1">
 <h1>Principles to Practice</h1>
+<div id="data-validation" class="section level2">
+<h2>Data Validation</h2>
+<p><strong>Data validation</strong> is a critical aspect of the research data lifecycle. It is the often ongoing process of ensuring the accuracy and quality of your data so that they are useful and can be analyzed. Employing validation rules (or checks) both before and after entering your data can help you ensure that your data are logical and fit necessary parameters. One common example is controlling numerical values so they fall within expected bounds (0-1 for a percent, for example) and that levels for a character data type are standardized and spelled correctly (percent vs Percent, per, or %). Leveraging built-in tools in your spreadsheet processor to automate validation logic and populating data dictionaries at the start of your project can help reduce the amount of subsequent necessary data cleaning. It can also help identify suspect cells after you’ve finished entering your data.</p>
+<p>Some important data validation checks you should always perform on your data are:</p>
+<ul>
+<li>Data-type check - only expected characters are present in a field (ex. numbers only accepted for numeric, text only accepted for character types)</li>
+<li>Format check - data are in a specified format (ex. dates must be formatted as YYYY-MM-DD)</li>
+<li>Range check - data are within a specified range of values (ex. the range must be 0-1 for a percent)</li>
+<li>Code (or levels) check - data are consistent with one or more external rules (ex. experimental condition can only be ‘placebo’ or ‘treatment’, spelled correctly and case sensitive)</li>
+<li>Consistency check - entries across fields are logical (ex. the date of death cannot be earlier than the date of birth)</li>
+<li>Uniqueness check - each value is unique (ex. each subject, or row, must have a unique ID number)</li>
+</ul>
+<p><em>While for reproducibility and scientific integrity purposes we encourage researchers to validate, clean, and process their data in coding-based software (like R or Python), Excel is a commonly used and powerful tool. It “Excels” at being straightforward for onboarding new research assistants to enter small-ish, simple datasets. And you can leverage its built-in data validation tools (discussed below) to help ensure higher quality data capture.</em></p>
+</div>
+<div id="data-validation-in-excel" class="section level2">
+<h2>Data Validation in Excel</h2>
+<p>We’ll use the tidy version of the Women of Color Congress dataset to practice a few different different data validation tools in Excel.</p>
+<p>Demo dataset: <a href="workshop_keeping_data_tidy/2021_workshop-tidy-data_demo_woc-congress_clean.xlsx">2021_workshop-tidy-data_demo_woc-congress_clean.xlsx</a></p>
+<p>Try the following in the demo dataset:</p>
+<p><em>Data-type, Range and Format</em> validation: * You can format the cells to force them to contain a specific data type. Right click on a cell (or column) and select format cells. To constrain to numeric values, select “Numeric.” For values that should have a certain number of digits (like a year, or if you want to add a leading zero), select Custom and edit the Type field to contain the number of zeroes corresponding to the number of desired digits (i.e., Type would be 0000 for a 4-digit year). * You can also use the data validation tool under the Data ribbon to constrain to a data-type. Using the numeric type as an example, under Data Validation-Settings select to allow a ‘Whole number’ between a known minimum and maximum range will help prevent typos and incorrect entries. You can add an “input message” to help those entering the data remember what should go into the cell (such as “this entry should be a 4-digit year”), and an error alert (such as “this entry does not match the cell parameters for a 4-digit year”) to alert when errors are entered.</p>
+<p><em>Consistency</em> validation: * You can also use data validation such that the entry in one cell depends on that of another. For example, Year Term Began should always be prior (or smaller numerically) than Year Term Ended. Under Data Validation-Settings select to allow ‘Custom’ and enter a formula where the column for Began is less than the column for Ended (=F1&lt;G1). * You can use the Data Validation “Circle Invalid Data” setting to help you quickly identify the pre-entered errors in a dataset, but note that it may also flag your headers, in which case it’s helpful to remove the data validation for those respective rows.</p>
+<p><em>Code</em> validation: * The “Filter” tool under the Data ribbon is a helpful tool for inspecting the levels of a variable. Highlight the header row and select filter to see a dropdown of the unique entries within each column. This can be helpful for identifying misspellings or typos, particularly in small datasets. * A robust approach is to develop a data dictionary with a restricted vocabulary list that you can use with Excel’s data validation tools. A quick way to do this is to create a new tab that contains lists for all the levels of your variables. Once created, highlight the column of interest in the spreadsheet and select to allow a “list” on the Data Validation-Settings. In the Source field, highlight the list (excluding the header) on your dictionary tab. Add input messages and error alerts as appropraite to help those performing your data entry.</p>
+<p><em>Conditional Formatting</em>: * You can also create rules using Conditional Fomatting, under the Styles group on the Home tab, to quickly highlight all appearances of a specific string within cells. To implement, create a new rule to “format only cells with specific text” “containing” and enter your string of interest.</p>
+<div id="practice" class="section level3">
+<h3>Practice!</h3>
+<ol style="list-style-type: decimal">
+<li>Constrain Year Term Began to be a numerical value between a logical range.</li>
+<li>Constrain Year Term Ended to be a numerical value greater than Year Term Began.</li>
+<li>Constrain State to be a 2-letter code corresponding to a US state or territory.</li>
+<li>Constrain Party to be a code corresponding to the 3 known levels of party affiliation in the dataset.</li>
+<li>Use conditional formatting to find all NA values in the dataset. What worked? What went wrong? How might you fix it?</li>
+</ol>
+</div>
+</div>
 </div>
 <div id="resources" class="section level1">
 <h1>Additional Resources</h1>
