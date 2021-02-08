@@ -231,22 +231,49 @@ For more information about metadata and data documentation, we will be holding [
 
 ## Data Validation
 
-**Data validation** is a critical aspect of the reseach data lifecycle. It's is the often ongoing process of ensuring the accuracy and quality of your data so that they are useful and can be analyzed. Employing validation rules (or checks) both before and after entering your data can help you ensure that your data are logical and fit necessary parameters. One common example is controlling numerical values so they fall within expected bounds (0-1 for a percent, for example) and that levels for a character data type are standardized and spelled correctly (percent vs Percent, per, or %). Leveraging built-in tools in your spreadsheet processor to automate validation logic and populating data dictionaries at the start of your project can help reduce the amount of subsequent necessary data cleaning. It can also help identify suspect cells after you've finished entering your data. 
+**Data validation** is a critical aspect of the research data lifecycle. It is the often ongoing process of ensuring the accuracy and quality of your data so that they are useful and can be analyzed. Employing validation rules (or checks) both before and after entering your data can help you ensure that your data are logical and fit necessary parameters. One common example is controlling numerical values so they fall within expected bounds (0-1 for a percent, for example) and that levels for a character data type are standardized and spelled correctly (percent vs Percent, per, or %). Leveraging built-in tools in your spreadsheet processor to automate validation logic and populating data dictionaries at the start of your project can help reduce the amount of subsequent necessary data cleaning. It can also help identify suspect cells after you've finished entering your data. 
 
 Some important data validation checks you should always perform on your data are:
 
-* Data-type check - only expected characters are present in a field (ex. numbers only acceptd for numeric, text only accepted for character types)
+* Data-type check - only expected characters are present in a field (ex. numbers only accepted for numeric, text only accepted for character types)
 * Format check - data are in a specified format (ex. dates must be formatted as YYYY-MM-DD)
 * Range check - data are within a specified range of values (ex. the range must be 0-1 for a percent)
 * Code (or levels) check - data are consistent with one or more external rules (ex. experimental condition can only be 'placebo' or 'treatment', spelled correctly and case sensitive)
 * Consistency check - entries across fields are logical (ex. the date of death cannot be earlier than the date of birth)
 * Uniqueness check - each value is unique (ex. each subject, or row, must have a unique ID number)
 
-*While for reprodicibility and scientific integrity purposes we encourage researchers to validate, clean, and process their data in coding-based software (like R or Python), Excel is a commonly used and powerful tool. It "Excels" at being straightforward for onboarding new research assistants to enter small-ish, simple datasets. And you can leverage its built-in data validation tools (discussed below) to help ensure higher quality data capture.* 
+*While for reproducibility and scientific integrity purposes we encourage researchers to validate, clean, and process their data in coding-based software (like R or Python), Excel is a commonly used and powerful tool. It "Excels" at being straightforward for onboarding new research assistants to enter small-ish, simple datasets. And you can leverage its built-in data validation tools (discussed below) to help ensure higher quality data capture.* 
 
 ## Data Validation in Excel
 
+We'll use the tidy version of the Women of Color Congress dataset to practice a few different different data validation tools in Excel.
 
+Demo dataset: 
+
+Try the following in the demo dataset:
+
+*Data-type, Range and Format* validation: 
+* You can format the cells to force them to contain a specific data type. Right click on a cell (or column) and select format cells. To constrain to numeric values, select "Numeric." For values that should have a certain number of digits (like a year, or if you want to add a leading zero), select Custom and edit the Type field to contain the number of zeroes corresponding to the number of desired digits (i.e., Type would be 0000 for a 4-digit year).
+* You can also use the data validation tool under the Data ribbon to constrain to a data-type. Using the numeric type as an example, under Data Validation-Settings select to allow a 'Whole number' between a known minimum and maximum range will help prevent typos and incorrect entries. You can add an "input message" to help those entering the data remember what should go into the cell (such as "this entry should be a 4-digit year"), and an error alert (such as "this entry does not match the cell parameters for a 4-digit year") to alert when errors are entered.
+
+*Consistency* validation:
+* You can also use data validation such that the entry in one cell depends on that of another. For example, Year Term Began should always be prior (or smaller numerically) than Year Term Ended. Under Data Validation-Settings select to allow 'Custom' and enter a formula where the column for Began is less than the column for Ended (=F1<G1). 
+* You can use the Data Validation "Circle Invalid Data" setting to help you quickly identify the pre-entered errors in a dataset, but note that it may also flag your headers, in which case it's helpful to remove the data validation for those respective rows.
+
+*Code* validation: 
+* The "Filter" tool under the Data ribbon is a helpful tool for inspecting the levels of a variable. Highlight the header row and select filter to see a dropdown of the unique entries within each column. This can be helpful for identifying misspellings or typos, particularly in small datasets.
+* A robust approach is to develop a data dictionary with a restricted vocabulary list that you can use with Excel's data validation tools. A quick way to do this is to create a new tab that contains lists for all the levels of your variables. Once created, highlight the column of interest in the spreadsheet and select to allow a "list" on the Data Validation-Settings. In the Source field, highlight the list (excluding the header) on your dictionary tab. Add input messages and error alerts as appropraite to help those performing your data entry. 
+
+*Conditional Formatting*:
+* You can also create rules using Conditional Fomatting, under the Styles group on the Home tab, to quickly highlight all appearances of a specific string within cells. To implement, create a new rule to "format only cells with specific text" "containing" and enter your string of interest.
+
+### Practice!
+
+1. Constrain Year Term Began to be a numerical value between a logical range.
+2. Constrain Year Term Ended to be a numerical value greater than Year Term Began.
+3. Constrain State to be a 2-letter code corresponding to a US state or territory.
+4. Constrain Party to be a code corresponding to the 3 known levels of party affiliation in the dataset.
+5. Use conditional formatting to find all NA values in the dataset. What worked? What went wrong? How might you fix it?
 
 
 # Additional Resources {#resources}
