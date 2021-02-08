@@ -68,7 +68,7 @@ In an upcoming workshop (March 4th, 2021), we will be discussing metadata and do
 
 In this section, we list some of the best practices to follow when entering and arranging data in Excel. These quick tips will help with data analysis and interpretation down the line, making your data more shareable and reproducible. 
 
-The data for the examples comprises historical data on women of color in the U.S. Congress, and the "dirty" version shown can be accessed [here](workshop_keeping_data_tidy/2021_workshop-tidy-data_demo_woc-congress_messy.xlsx). 
+The data for the examples comprises historical data on women of color in the U.S. Congress, and the "dirty" version shown can be accessed [here](https://raw.githubusercontent.com/ucdavisdatalab/workshop_keeping_data_tidy/main/data/2021_workshop_tidy-data_woc-congress_messy.xlsx).
 
 ## 1. Keep variables in columns, observations in rows. {#one}
 
@@ -250,7 +250,7 @@ Some important data validation checks you should always perform on your data are
 
 We'll use the tidy version of the Women of Color Congress dataset to practice a few different different data validation tools in Excel.
 
-Demo dataset: [2021_workshop-tidy-data_demo_woc-congress_clean.xlsx](workshop_keeping_data_tidy/2021_workshop-tidy-data_demo_woc-congress_clean.xlsx)
+Demo dataset: [2021_workshop-tidy-data_demo_woc-congress_clean.xlsx](https://raw.githubusercontent.com/ucdavisdatalab/workshop_keeping_data_tidy/main/data/2021_workshop_tidy-data_demo_woc-congress_clean.xlsx)
 
 Try the following in the demo dataset:
 
